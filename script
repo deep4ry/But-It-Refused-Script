@@ -6,13 +6,22 @@ local character = player.Character or player.CharacterAdded:Wait()
 local isActive = false
 local deathPosition = nil
 
+-- Show notification with "OK" button
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Notification"; 
+    Text = "Thanks for using our script! Loading..."; 
+    Duration = 10; 
+    Button1 = "OK"; 
+})
+
+-- "But It Refused" script starts here
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game:GetService("CoreGui")
 
 local dragFrame = Instance.new("Frame")
 dragFrame.Size = UDim2.new(0, 220, 0, 150)
 dragFrame.Position = UDim2.new(0, 10, 0, 10)
-dragFrame.BackgroundColor3 = Color3.new(0.2, 0.2, 0.2)
+dragFrame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 dragFrame.BackgroundTransparency = 0.3
 dragFrame.Active = true
 dragFrame.Draggable = true
@@ -22,8 +31,8 @@ local toggleButton = Instance.new("TextButton")
 toggleButton.Size = UDim2.new(0, 200, 0, 50)
 toggleButton.Position = UDim2.new(0, 10, 0, 50)
 toggleButton.Text = "But It Refused: OFF"
-toggleButton.BackgroundColor3 = Color3.new(0.8, 0.8, 0.8)
-toggleButton.TextColor3 = Color3.new(0, 0, 0)
+toggleButton.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+toggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 toggleButton.Parent = dragFrame
 
 toggleButton.MouseButton1Click:Connect(function()
